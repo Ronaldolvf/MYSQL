@@ -13,9 +13,9 @@ LIMITE_CREDITO float,
 VOLUME float,
 PRIMEIRA_COMPRA bit(1));
 
-drop table tbCliente2;                                        # Para deleta a tabela.
+drop table tbCliente2;                                                 # Para deleta a tabela.
 
-insert into tbprofuto(                                        # Para inserir os dados na coluna. 
+insert into tbprofuto(                                                 # Para inserir os dados na coluna. 
 PRODUTO,
 NOME,
 EMBALAGEM,
@@ -27,3 +27,7 @@ PRECO_LISTA) values(
 update tbprofuto set EMBALAGEM = 'Lata', PRECO_LISTA = 2.46             # Tal função serve para modificar os dados das tabelas.
 where PRODUTO = '544931';                                               # indica a chave so produto. 
 
+delete from tbprofuto                                                   # Para apagar um registro da tabela. 
+where PRODUTO = '1078680'; 
+
+alter table tbprofuto add primary key (PRODUTO);                        # Criando uma chave primária.
