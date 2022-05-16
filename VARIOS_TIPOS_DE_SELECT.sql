@@ -36,8 +36,6 @@ order by QUATIDADE;
 select BAIRRO, sum(LIMITE_DE_CREDITO) AS LIMITE FROM tabela_de_clientes                            # Agrupando por bairro e somando os limites. 
 where CIDADE = "RIO DE JANEIRO" group by BAIRRO;	
 
-select bairro, LIMITE_DE_CREDITO from tabela_de_clientes;
-
 SELECT ESTADO, BAIRRO, SUM(LIMITE_DE_CREDITO) as LIMITE FROM tabela_de_clientes 
 WHERE CIDADE = 'Rio de Janeiro' 
 GROUP BY ESTADO, BAIRRO 
@@ -45,13 +43,9 @@ ORDER BY LIMITE;
 
 SELECT ESTADO, SUM(LIMITE_DE_CREDITO) as SOMA_LIMITE FROM tabela_de_clientes
 GROUP BY ESTADO
-HAVING SUM(LIMITE_DE_CREDITO) > 900000;
+HAVING SUM(LIMITE_DE_CREDITO) > 900000;                                        # O having é para filtrta o resultado do agrupamento.
 
-select NOME,sum(LIMITE_DE_CREDITO)  from tabela_de_clientes group by NOME;
-
-select * , sum(LIMITE_DE_CREDITO) AS LIMITE from tabela_de_clientes;
-
-select *from tabela_de_vendedores  inner join notas_fiscais;      # Selecionando a tabela a e b.
+select *from tabela_de_vendedores inner join notas_fiscais;                   # Com o inner join, une-se 2 ou mais tabelas. 
  
 select A.MATRICULA, nome, count(*) from tabela_de_vendedores a 
 inner join notas_fiscais B
@@ -59,7 +53,7 @@ on A.MATRICULA = B.MATRICULA
 group by A.MATRICULA, nome;                                   
 
 select distinct A.CPF, A.NOME, B.CPF from tabela_de_clientes a
-left join notas_fiscais B ON A.CPF = B.CPF;                      # Filtrando a tabela esquerda.alter
+left join notas_fiscais B ON A.CPF = B.CPF;                                          # Filtrando a tabela esquerda.alter
 
 SELECT 
 tabela_de_vendedores.BAIRRO,
@@ -73,7 +67,6 @@ select distinct BAIRRO FROM tabela_de_clientes
 union all                                                   # Para seleionar duas ou mais tabelas.
 select distinct BAIRRO FROM tabela_de_vendedores;
 
-
 SELECT DISTINCT BAIRRO, NOME, 'CLIENTE' as TIPO_CLIENTE, CPF FROM tabela_de_clientes
 UNION                                                                                              # Sem o all, o distinct é aplicado.
 SELECT DISTINCT BAIRRO, NOME, 'VENDEDOR' as TIPO_VENDEDOR, MATRICULA FROM tabela_de_vendedores;
@@ -86,7 +79,7 @@ SELECT X.EMBALAGEM, X.MAIOR_PRECO FROM
 GROUP BY EMBALAGEM) X WHERE X.MAIOR_PRECO >= 10;
 
 SELECT X.EMBALAGEM, X.MAIOR_PRECO FROM
-VW_MAIORES_EMBALAGENS X WHERE X.MAIOR_PRECO >= 10;         # Esta usandovw_maiores_embalagensEMBALAGEMMAIOR_PRECOMAIOR_PRECOEMBALAGEMvw_maiores_embalagens  vw para substituir o selec....
+VW_MAIORES_EMBALAGENS X WHERE X.MAIOR_PRECO >= 10;             # Esta usandovw_maiores_embalagensEMBALAGEMMAIOR_PRECOMAIOR_PRECOEMBALAGEMvw_maiores_embalagens  vw para substituir o selec....
 
 
 
