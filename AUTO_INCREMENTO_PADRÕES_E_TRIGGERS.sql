@@ -23,3 +23,27 @@ insert into tb_padrao (DESCRITOR)
 values ("CLIENTE Y");
 
 select *from tb_padrao;
+
+# A trigger 
+
+create table TB_FATURAMENTO
+(DATA_VENDA date null, 
+TOTAL_VENDA float);
+
+select *from notas;
+select *from itens_notas;
+select *from tb_faturamento;
+
+
+delimiter //
+create trigger TG_CALCULA_FATURAMENTO_INSERT after insert on itens_notas 
+for each row begin
+    delete from tab_faturamento;
+    insert into tab_faturamento
+    select a.data_venda, sum(b.quantidade * b.preco) as TOTAL_VENDA from notas a
+    join itens_notas b
+    on a.numero = b.numero
+    group by a.data_venda;
+end//
+
+ 
