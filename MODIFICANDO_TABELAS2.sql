@@ -9,10 +9,11 @@ CREATE TABLE `produtos2` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
-insert into produtos2                   # Transferindo todas as informacoes da tabela "produtos" para a tabela "produtos2". 
+insert into produtos2                         # Transferindo todas as informacoes da tabela "produtos" para a tabela "produtos2". 
 select *from produtos;
 
-update produtos2 set preco_lista = 1;   # Modificando todo a coluna "preco_lista" na tabrla "produtos2".
+update produtos2 set preco_lista = 1;         # Modificando todo a coluna "preco_lista" na tabela "produtos2".
+
+select *from produtos;
 
 select *from produtos2;
-
