@@ -38,12 +38,24 @@ select *from tb_faturamento;
 delimiter //
 create trigger TG_CALCULA_FATURAMENTO_INSERT after insert on itens_notas 
 for each row begin
-    delete from tab_faturamento;
-    insert into tab_faturamento
-    select a.data_venda, sum(b.quantidade * b.preco) as TOTAL_VENDA from notas a
+    delete from tb_faturamento;
+    insert into tb_faturamento
+    select a.DATYA_VENDA, sum(b.QUANTIDADE * b.PRECO) as TOTAL_VENDA from notas a
     join itens_notas b
-    on a.numero = b.numero
-    group by a.data_venda;
+    on a.NUMERO = b.NUMERO
+    group by a.datya_venda;
 end//
 
- 
+insert into notas (numero, datya_venda, cpf, matricula, imposto)
+values('0100', '2019-05-08', '1471156710', '235', '0.10');
+insert into itens_notas (NUMERO, CODIGO, QUANTIDADE, PRECO) 
+values ('0100', '1000889', 100, 10);
+insert into itens_notas (numero, codigo, quantidade, preco) 
+values ('0100', '1002334', 100, 10);
+
+insert into notas (numero, datya_venda, cpf, matricula, imposto)
+values('0101', '2019-05-08', '1471156710', '235', '0.10');
+insert into itens_notas (numero, codigo, quantidade, preco) 
+values ('0101', '1000889', 100, 10);
+insert into itens_notas (numero, codigo, quantidade, preco) 
+values ('0101', '1002334', 100, 10);
