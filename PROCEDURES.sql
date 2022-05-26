@@ -1,0 +1,11 @@
+CALL ALO_MUNDO2;                                            # O resultado do procedure criado. 
+
+CALL MANIPULACAO_DADOS; 
+
+CALL INCLUI_NOVO_PRODUTO;
+
+SELECT *FROM tabela_de_produtos where NOME_DO_PRODUTO LIKE "SABOR DO MAR%";
+
+CALL INCLUI_NOVO_PRODUTO_PARAMETRO ("4000001", "SABOR DO PANTANAL 1 LITRO - MELANCIA", "MELACIA", "1 LITRO", "PET", 4.76);
+
+SELECT *FROM tabela_de_produtos where CODIGO_DO_PRODUTO LIKE "4000001";
