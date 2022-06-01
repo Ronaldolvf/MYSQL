@@ -8,4 +8,6 @@ select *FROM tabela_de_clientes LIMIT 5, 1;                  # Está pegando o s
 
 select f_cliente_aleatorio();                                # Traz um "cpf" de forma aleatórioa. 
 
-select f_produto_aleatorio(),  f_vendedor_aleatorio();
+select f_produto_aleatorio(), f_vendedor_aleatorio();        # Trazendo o "CODIGO_DO_PRODUTO" e ao "CODIGO_DO_PRODUTO" aleatoriamente. 
+
+select count(*) from tabela_de_clientes;
